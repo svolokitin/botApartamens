@@ -62,9 +62,12 @@ def parse_apartments():
             if (city == CITY_FILTER) and any(district in address for district in DISTRICT_FILTER):
                 apartments_list.append({
                     'link': link
-                }) 
+                })
 
-    return apartments_list    
+    return apartments_list
+                 
+
+        
 
 
     

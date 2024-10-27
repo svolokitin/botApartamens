@@ -1,3 +1,4 @@
 .env
 venv
+botVenv
 __pycache__
