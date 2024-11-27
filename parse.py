@@ -16,7 +16,7 @@ def parse_apartments():
 
     apartments_list = []
 
-    num_page = 5
+    num_page = 25
 
     for page in range(1, num_page + 1):
         num = 0
