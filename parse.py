@@ -16,7 +16,7 @@ def parse_apartments():
 
     apartments_list = []
 
-    num_page = 25
+    num_page = 5
 
     for page in range(1, num_page + 1):
         num = 0
@@ -31,10 +31,10 @@ def parse_apartments():
         print('Парсим...')
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        apartments = soup.find_all('div', class_='css-1sw7q4x')
+        apartments = soup.find_all('div', class_='css-j0t2x2')
 
         for apartment in apartments:
-            title_element = apartment.find('h6', class_='css-1wxaaza')
+            title_element = apartment.find('h4', class_='css-1s3qyje')
             title = title_element.get_text(strip=True) if title_element is not None else 'Назва не вказана'
 
             price_element = apartment.find('p', class_='css-13afqrm')
@@ -43,7 +43,7 @@ def parse_apartments():
             address_element = apartment.find('p', class_='css-1mwdrlh')
             address = address_element.get_text(strip=True) if address_element is not None else 'Адреса не вказана'
 
-            link_element = apartment.find('a', class_='css-z3gu2d', href=True)
+            link_element = apartment.find('a', class_='css-qo0cxu', href=True)
             link = 'https://www.olx.ua'+link_element['href'] if link_element else 'Посилання не знайдено'
 
             parts = address.split(',')
@@ -65,9 +65,7 @@ def parse_apartments():
                 })
 
     return apartments_list
-                 
-
-        
+                      
 
 
     
